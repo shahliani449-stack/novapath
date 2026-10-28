@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAPATH | The 7-Day Anti-Procrastination Guide</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0A0C10',
+                            card: '#131720',
+                            border: '#202634',
+                            accent: '#00F2FE',
+                            accentGlow: 'rgba(0, 242, 254, 0.18)',
+                            gold: '#FFB800',
+                            goldGlow: 'rgba(255, 184, 0, 0.18)',
+                            text: '#F1F5F9',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+    <style>
+        body {
+            background-color: #0A0C10;
+            color: #F1F5F9;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #FFB800 0%, #FF8A00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* CSS 3D eBook Mockup */
+        .book-container {
+            perspective: 1200px;
+        }
+        .book-3d {
+            width: 270px;
+            height: 385px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(-22deg) rotateX(8deg);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: -22px 22px 35px rgba(0,0,0,0.85), 0 0 30px rgba(0, 242, 254, 0.25);
+        }
+        .book-container:hover .book-3d {
+            transform: rotateY(-10deg) rotateX(4deg) scale(1.03);
+            box-shadow: -28px 28px 45px rgba(0,0,0,0.92), 0 0 40px rgba(0, 242, 254, 0.45);
+        }
+        .book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #0F131A, #18202C);
+            border-radius: 4px 12px 12px 4px;
+            border-left: 3px solid #00F2FE;
+            overflow: hidden;
+        }
+        .book-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 100%;
+            background: linear-gradient(90deg, #07090C 0%, #161B24 50%, #07090C 100%);
+            transform: rotateY(90deg) translateZ(0px) translateX(-18px);
+            border-radius: 4px 0 0 4px;
+        }
+        .book-pages {
+            position: absolute;
+            right: 4px;
+            top: 6px;
+            width: 32px;
+            height: 373px;
+            background: #E2E8F0;
+            transform: rotateY(90deg) translateZ(250px);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.25);
+        }
+
+        .glass-panel {
+            background: rgba(19, 23, 32, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: #131720;
+            border: 1px solid #202634;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 242, 254, 0.45);
+            transform: translateY(-4px);
+        }
+
+        /* Image overlay effects */
+        .img-card-overlay {
+            background: linear-gradient(to top, rgba(10,12,16,0.95) 0%, rgba(10,12,16,0.4) 50%, rgba(10,12,16,0.1) 100%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0C10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #202634;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F2FE;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-black">
+
+    <!-- Top Sticky Bar -->
+    <div class="bg-gradient-to-r from-cyan-950 via-brand-card to-slate-950 border-b border-brand-border py-2 px-4 text-center text-xs sm:text-sm text-brand-muted flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+        <span class="text-brand-text font-semibold">100% Free Download:</span>
+        <span>No Payment Needed — Instant PDF Access Included.</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-accent to-blue-600 flex items-center justify-center font-black text-black text-xl shadow-lg shadow-cyan-500/20">
+                    N
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-lg tracking-wider text-white">NOVAPATH</span>
+                    <span class="text-[9px] tracking-widest text-brand-muted uppercase font-semibold">Think. Act. Move.</span>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+                <a href="#system" class="hover:text-brand-accent transition-colors">The System</a>
+                <a href="#7-day-journey" class="hover:text-brand-accent transition-colors">7-Day Journey</a>
+                <a href="#quiz" class="hover:text-brand-accent transition-colors">Assessment Test</a>
+                <a href="#japanese-secrets" class="hover:text-brand-accent transition-colors">8 Japanese Secrets</a>
+                <a href="#bonus" class="hover:text-brand-accent transition-colors">Bonus Tips</a>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://whop.com/nova-path-solutions-8ae1/the-7-day-anti-procrastination-guide-25?a=shadowsect72" target="_blank" rel="noopener" class="bg-brand-accent hover:bg-cyan-300 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 flex items-center gap-2">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Get The Free Guide</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+        <!-- Ambient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-8">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-brand-accent text-xs font-semibold tracking-wide uppercase">
+                        <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                        Master Unshakable Focus In 7 Days
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+                        Stop Waiting.<br>
+                        <span class="gradient-text">Start Doing.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-brand-muted max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        A realistic, deliberate system to destroy procrastination, conquer mental friction, and execute high-priority goals without relying on fleeting motivation.
+                    </p>
+
+                    <!-- Feature Tags -->
+                    <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300 font-medium text-left max-w-xl mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2.5 bg-brand-card/80 p-3 rounded-xl border border-brand-border">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent flex-shrink-0"></i>
+                            <span>Step-by-step 7-Day Action Plan</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-brand-card/80 p-3 rounded-xl border border-brand-border">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent flex-shrink-0"></i>
+                            <span>8 Japanese Anti-Laziness Techniques</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-brand-card/80 p-3 rounded-xl border border-brand-border">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent flex-shrink-0"></i>
+                            <span>Zero bloated apps: Pen & Paper focus</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-brand-card/80 p-3 rounded-xl border border-brand-border">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent flex-shrink-0"></i>
+                            <span>20 High-impact productivity rules</span>
+                        </div>
+                    </div>
+
+                    <!-- Call To Action -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://whop.com/nova-path-solutions-8ae1/the-7-day-anti-procrastination-guide-25?a=shadowsect72" target="_blank" rel="noopener" class="w-full sm:w-auto bg-gradient-to-r from-brand-accent to-blue-500 hover:from-cyan-400 hover:to-blue-600 text-slate-950 font-extrabold text-base px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-0.5">
+                            <span>GET FREE INSTANT ACCESS</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+
+                        <div class="flex items-center gap-3 text-xs text-brand-muted">
+                            <div class="flex -space-x-2">
+                                <img class="w-8 h-8 rounded-full border-2 border-brand-bg object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="User">
+                                <img class="w-8 h-8 rounded-full border-2 border-brand-bg object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="User">
+                                <img class="w-8 h-8 rounded-full border-2 border-brand-bg object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="User">
+                            </div>
+                            <div class="text-left">
+                                <div class="flex text-amber-400 text-xs">★★★★★</div>
+                                <span>2,400+ Readers Accelerated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-6 pt-2 text-xs text-brand-muted">
+                        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Instant PDF Digital Download</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="smartphone" class="w-4 h-4 text-brand-accent"></i> Mobile & Desktop Ready</span>
+                    </div>
+
+                </div>
+
+                <!-- 3D eBook Mockup -->
+                <div class="lg:col-span-5 flex justify-center items-center py-6">
+                    <div class="book-container">
+                        <div class="book-3d">
+                            <div class="book-spine"></div>
+                            <div class="book-pages"></div>
+                            <div class="book-cover p-6 flex flex-col justify-between relative">
+                                <!-- Background Dark Texture Overlay -->
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" alt="Abstract dark cover background">
+
+                                <div class="space-y-1 relative z-10">
+                                    <div class="flex items-center gap-1.5 text-brand-accent text-[10px] font-black uppercase tracking-widest">
+                                        <div class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></div>
+                                        NOVAPATH GUIDE
+                                    </div>
+                                    <p class="text-[9px] text-slate-400 font-mono tracking-tight">THINK CLEARLY. ACT DELIBERATELY.</p>
+                                </div>
+
+                                <div class="my-auto py-6 space-y-3 relative z-10">
+                                    <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest border-b border-brand-border/60 pb-1">
+                                        7-DAY ACTIONABLE FRAMEWORK
+                                    </div>
+                                    <h2 class="text-2xl font-black text-white leading-tight">
+                                        THE 7-DAY<br>
+                                        <span class="text-brand-accent">ANTI-PROCRASTINATION</span><br>
+                                        GUIDE
+                                    </h2>
+                                    <p class="text-[11px] text-slate-300 italic">
+                                        "Stop Waiting. Start Doing."
+                                    </p>
+                                </div>
+
+                                <div class="pt-4 border-t border-brand-border/80 flex items-center justify-between text-[10px] text-slate-400 font-medium relative z-10">
+                                    <span>NOVAPATH PRESS</span>
+                                    <span class="px-2 py-0.5 rounded bg-brand-accent/20 text-brand-accent text-[9px] font-bold">2026 EDITION</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN VS SYSTEM (WITH HIGH IMPACT VISUALS) -->
+    <section id="system" class="py-20 bg-brand-bg relative border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Break The Endless Cycle</h2>
+                <p class="text-2xl sm:text-4xl font-extrabold text-white">Why Do You Keep Postponing Your True Potential?</p>
+                <p class="text-brand-muted text-base">
+                    The core problem is rarely lack of time or skill. It is the insidious trap of instant comfort and unstructured focus.
+                </p>
+            </div>
+
+            <div class="mt-16 grid md:grid-cols-2 gap-8">
+                <!-- The Pain Card -->
+                <div class="glass-panel rounded-2xl border-red-500/20 bg-red-950/10 overflow-hidden flex flex-col justify-between">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&auto=format&fit=crop&q=80" alt="Frustrated person scrolling at night" class="w-full h-full object-cover filter brightness-75">
+                        <div class="absolute inset-0 img-card-overlay"></div>
+                        <div class="absolute bottom-4 left-6 flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center font-bold">
+                                <i data-lucide="x-circle" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">The Procrastination Trap</h3>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-4 text-xs sm:text-sm text-slate-300">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Waiting for "Motivation":</strong> Delaying action until conditions feel perfect, ensuring critical goals stay unfinished.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Cheap Dopamine Hits:</strong> Endless social scrolling gives instant comfort but leaves you with subconscious guilt.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Multitasking Illusion:</strong> Switching rapidly between tasks drains mental energy fast and leads to costly errors.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Overcomplicating Setup:</strong> Spending hours configuring productivity apps instead of simply starting the work.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Solution Card -->
+                <div class="glass-panel rounded-2xl border-cyan-500/30 bg-cyan-950/10 overflow-hidden flex flex-col justify-between">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&auto=format&fit=crop&q=80" alt="Laser focused deep work environment" class="w-full h-full object-cover filter brightness-90">
+                        <div class="absolute inset-0 img-card-overlay"></div>
+                        <div class="absolute bottom-4 left-6 flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold">
+                                <i data-lucide="check-circle" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">The NOVAPATH Way</h3>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-4 text-xs sm:text-sm text-slate-300">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                            <span><strong>70% Decision Velocity:</strong> Move with urgency using Jeff Bezos's speed rule rather than overthinking.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Pareto 80/20 Leverage:</strong> Identify the single highest-value action and execute it before lower priorities.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Japanese Philosophy (Kaizen & Ikigai):</strong> Build 1% daily momentum and remove initial friction completely.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Pen & Paper Clarity:</strong> Zero tech distractions. Clean, objective daily planning that builds self-trust.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE QUIZ SECTION -->
+    <section id="quiz" class="py-20 bg-slate-950 border-t border-brand-border/40 relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-10">
+                <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-brand-gold text-xs font-bold uppercase tracking-wider">
+                    Interactive Assessment
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Discover Your Procrastination Score</h2>
+                <p class="text-brand-muted text-sm">Answer 3 quick questions to measure your current mental friction level.</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-8 rounded-2xl relative" id="quiz-container">
+                <div id="quiz-step-1" class="space-y-6">
+                    <div class="flex items-center justify-between text-xs font-mono text-brand-muted border-b border-brand-border pb-3">
+                        <span>QUESTION 1 OF 3</span>
+                        <span class="text-brand-accent">33% Completed</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-white">When faced with a demanding, critical task, how do you usually react?</h3>
+                    <div class="space-y-3">
+                        <button onclick="answerQuiz(1, 3)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            A) Clean my desk, check email, or scroll social media "just for 5 minutes".
+                        </button>
+                        <button onclick="answerQuiz(1, 2)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            B) Look for new tools or apps to organize the task instead of starting it.
+                        </button>
+                        <button onclick="answerQuiz(1, 1)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            C) Immediately take the first small step regardless of how ready I feel.
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-step-2" class="space-y-6 hidden">
+                    <div class="flex items-center justify-between text-xs font-mono text-brand-muted border-b border-brand-border pb-3">
+                        <span>QUESTION 2 OF 3</span>
+                        <span class="text-brand-accent">66% Completed</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-white">How do you structure your daily task list?</h3>
+                    <div class="space-y-3">
+                        <button onclick="answerQuiz(2, 3)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            A) Complete easy, minor tasks first to feel productive, saving hard work for later.
+                        </button>
+                        <button onclick="answerQuiz(2, 2)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            B) Try to work on multiple tasks simultaneously (multitasking).
+                        </button>
+                        <button onclick="answerQuiz(2, 1)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            C) Identify the 20% most important task (Pareto) and tackle it first.
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-step-3" class="space-y-6 hidden">
+                    <div class="flex items-center justify-between text-xs font-mono text-brand-muted border-b border-brand-border pb-3">
+                        <span>QUESTION 3 OF 3</span>
+                        <span class="text-brand-accent">100% Completed</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-white">How do you feel at the end of a unproduced day?</h3>
+                    <div class="space-y-3">
+                        <button onclick="answerQuiz(3, 3)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            A) Frustrated, experiencing subconscious guilt and anxiety about tomorrow.
+                        </button>
+                        <button onclick="answerQuiz(3, 2)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            B) Mentally drained despite having been "busy" all day.
+                        </button>
+                        <button onclick="answerQuiz(3, 1)" class="w-full text-left p-4 rounded-xl bg-brand-bg border border-brand-border hover:border-brand-accent/50 hover:bg-slate-900 transition-all text-xs sm:text-sm text-slate-200">
+                            C) Satisfied, because my primary priority was completed early.
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="space-y-6 hidden text-center py-4">
+                    <div class="w-16 h-16 rounded-full bg-amber-500/20 text-brand-gold flex items-center justify-center mx-auto text-2xl font-black">
+                        <i data-lucide="gauge" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white" id="quiz-result-title">Assessment Complete</h3>
+                    <p class="text-xs sm:text-sm text-brand-muted max-w-lg mx-auto leading-relaxed" id="quiz-result-text">
+                        You are losing up to 60% of your cognitive capacity to mental friction. The NOVAPATH 7-day blueprint is designed to eliminate this exact gap.
+                    </p>
+                    <div class="pt-2">
+                        <a href="https://whop.com/nova-path-solutions-8ae1/the-7-day-anti-procrastination-guide-25?a=shadowsect72" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-brand-accent text-slate-950 font-bold px-6 py-3 rounded-xl hover:bg-cyan-300 transition-all text-sm">
+                            <span>Get Your Free 7-Day Anti-Procrastination Guide</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7-DAY JOURNEY WITH HIGH QUALITY IMAGES -->
+    <section id="7-day-journey" class="py-24 bg-brand-bg relative border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Day-By-Day Blueprint</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Your 7-Day Journey To Unshakeable Action</h2>
+                <p class="text-brand-muted text-base">
+                    Read one lesson each day. Execute the practical Action Box. Step forward deliberately.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Day 1 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80" alt="Stepping out of comfort zone" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 img-card-overlay"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md text-brand-accent text-xs font-bold font-mono border border-cyan-500/40">DAY 1</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-white">Comfort Zone Is Your Enemy</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                "Nothing ever grows in a comfort zone." Apply Jeff Bezos's 70% rule to decide and execute with lightning speed without overthinking failure.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="pt-4 border-t border-brand-border/60 text-[11px] text-brand-accent font-mono flex items-center gap-2">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Action Box: Step out in 10 minutes today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80" alt="Strategic business focus" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 img-card-overlay"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md text-brand-accent text-xs font-bold font-mono border border-cyan-500/40">DAY 2</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-white">The 80/20 Rule (Pareto)</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                20% of your efforts produce 80% of your real results. Stop being perpetually "busy" and isolate the single task that actually moves the needle.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="pt-4 border-t border-brand-border/60 text-[11px] text-brand-accent font-mono flex items-center gap-2">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Action Box: 20 focused minutes on priority #1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80" alt="Focusing on laptop screen" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 img-card-overlay"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md text-brand-accent text-xs font-bold font-mono border border-cyan-500/40">DAY 3</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-white">The Myth of Multitasking</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                "He who chases two rabbits catches neither." Learn how a simple metric unit error destroyed NASA's $125M Mars Orbiter and how context switching destroys focus.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="pt-4 border-t border-brand-border/60 text-[11px] text-brand-accent font-mono flex items-center gap-2">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Action Box: 25-minute distraction-free block</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=80" alt="Daily notebook routine" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 img-card-overlay"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md text-brand-accent text-xs font-bold font-mono border border-cyan-500/40">DAY 4</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-white">Build a Daily Routine</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                Model Leo Tolstoy's daily activity journal. Destroy digital "Trojan Horse" distractions by deleting addictive apps from your phone.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="pt-4 border-t border-brand-border/60 text-[11px] text-brand-accent font-mono flex items-center gap-2">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Action Box: 10-min daily quiet review habit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 5 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80" alt="Intense physical discipline" class="w-full h-full object-cover filter contrast-125">
+                            <div class="absolute inset-0 img-card-overlay"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md text-brand-accent text-xs font-bold font-mono border border-cyan-500/40">DAY 5</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-white">Master Self-Discipline</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                Suffer the pain of discipline or the pain of regret. Learn the legendary story of the king's diamond ring: "THIS TOO SHALL PASS."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="pt-4 border-t border-brand-border/60 text-[11px] text-brand-accent font-mono flex items-center gap-2">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Action Box: Execute 10 min without readiness</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 6 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600&auto=format&fit=crop&q=80" alt="Japanese serene bamboo forest" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 img-card-overlay"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md text-brand-accent text-xs font-bold font-mono border border-cyan-500/40">DAY 6</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-white">8 Japanese Anti-Laziness Tools</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                Apply time-tested Eastern wisdom: Ikigai, Kaizen (1% daily gain), Shoshin, Hara Hachi Bu, Shinrin-yoku, Wabi-sabi, Ganbaru, and Gaman.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="pt-4 border-t border-brand-border/60 text-[11px] text-brand-accent font-mono flex items-center gap-2">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Action Box: Implement 1 Japanese micro-technique</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JAPANESE TECHNIQUES DETAILED SPOTLIGHT -->
+    <section id="japanese-secrets" class="py-20 bg-slate-950 border-t border-brand-border/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-gold">Day 6 Exclusive Module</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">8 Ancient Japanese Secrets To Overcome Laziness</h2>
+                <p class="text-brand-muted text-base">Effortless discipline rooted in centuries of cultural refinement.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">01. IKIGAI</span>
+                    <h4 class="text-base font-bold text-white">Discover Your Purpose</h4>
+                    <p class="text-xs text-brand-muted">Align what you love, what you are good at, what the world needs, and what you get paid for.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">02. KAIZEN</span>
+                    <h4 class="text-base font-bold text-white">1% Daily Improvement</h4>
+                    <p class="text-xs text-brand-muted">Focus on micro-improvements every day rather than overwhelming overnight transformations.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">03. SHOSHIN</span>
+                    <h4 class="text-base font-bold text-white">Beginner's Mind</h4>
+                    <p class="text-xs text-brand-muted">Approach tasks with open curiosity, unburdened by perfectionism or expert arrogance.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">04. HARA HACHI BU</span>
+                    <h4 class="text-base font-bold text-white">Eat Until 80% Full</h4>
+                    <p class="text-xs text-brand-muted">Prevent post-lunch lethargy and brain fog by stopping meals before complete fullness.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">05. SHINRIN-YOKU</span>
+                    <h4 class="text-base font-bold text-white">Forest Bathing</h4>
+                    <p class="text-xs text-brand-muted">Recharge overloaded cognitive capacity by walking in nature without digital notifications.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">06. WABI-SABI</span>
+                    <h4 class="text-base font-bold text-white">Embrace Imperfection</h4>
+                    <p class="text-xs text-brand-muted">Find beauty in flawed progress. Perfectionism is merely procrastination in disguise.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">07. GANBARU</span>
+                    <h4 class="text-base font-bold text-white">Persevere To The End</h4>
+                    <p class="text-xs text-brand-muted">Commit to doing your absolute best even when circumstances become inconvenient.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl space-y-2 border-l-2 border-brand-accent">
+                    <span class="text-brand-accent font-mono font-bold text-xs">08. GAMAN</span>
+                    <h4 class="text-base font-bold text-white">Dignified Endurance</h4>
+                    <p class="text-xs text-brand-muted">Demonstrate calm patience and emotional control when dealing with inevitable setbacks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTION BOX PREVIEW WIDGET -->
+    <section class="py-20 bg-brand-bg border-t border-brand-border/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Interactive Action Box Preview</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Experience How NOVAPATH Converts Reading Into Action</h2>
+                <p class="text-brand-muted text-sm">Every single chapter ends with a structured, actionable checklist.</p>
+            </div>
+
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border-brand-border">
+                <div class="flex overflow-x-auto gap-2 pb-4 border-b border-brand-border" id="action-box-tabs">
+                    <button onclick="switchTab(1)" id="tab-1" class="px-4 py-2 rounded-xl text-xs font-bold font-mono whitespace-nowrap bg-brand-accent text-slate-950">DAY 1</button>
+                    <button onclick="switchTab(2)" id="tab-2" class="px-4 py-2 rounded-xl text-xs font-bold font-mono whitespace-nowrap bg-brand-bg text-brand-muted hover:text-white">DAY 2</button>
+                    <button onclick="switchTab(3)" id="tab-3" class="px-4 py-2 rounded-xl text-xs font-bold font-mono whitespace-nowrap bg-brand-bg text-brand-muted hover:text-white">DAY 3</button>
+                    <button onclick="switchTab(6)" id="tab-6" class="px-4 py-2 rounded-xl text-xs font-bold font-mono whitespace-nowrap bg-brand-bg text-brand-muted hover:text-white">DAY 6 (Japanese)</button>
+                </div>
+
+                <div class="mt-6 space-y-4" id="action-box-content">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-base font-bold text-white flex items-center gap-2">
+                            <i data-lucide="check-square" class="w-5 h-5 text-brand-accent"></i>
+                            DAY 1 ACTION BOX: Step Out Of Your Comfort Zone
+                        </h4>
+                        <span class="text-xs text-brand-muted font-mono">Est. Time: 10 mins</span>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <label class="flex items-start gap-3 p-3 rounded-xl bg-brand-bg border border-brand-border/60 cursor-pointer hover:border-brand-accent/40">
+                            <input type="checkbox" class="mt-1 rounded border-slate-700 text-brand-accent focus:ring-0">
+                            <span class="text-sm text-slate-200">Write down one major goal or task you have been postponing.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 rounded-xl bg-brand-bg border border-brand-border/60 cursor-pointer hover:border-brand-accent/40">
+                            <input type="checkbox" class="mt-1 rounded border-slate-700 text-brand-accent focus:ring-0">
+                            <span class="text-sm text-slate-200">Break it down into one single, micro-step that takes under 10 minutes.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 rounded-xl bg-brand-bg border border-brand-border/60 cursor-pointer hover:border-brand-accent/40">
+                            <input type="checkbox" class="mt-1 rounded border-slate-700 text-brand-accent focus:ring-0">
+                            <span class="text-sm text-slate-200">Spend 10 focused minutes executing that exact micro-step today.</span>
+                        </label>
+                    </div>
+
+                    <p class="text-xs text-brand-gold italic pt-2">
+                        "Your Challenge: Stop waiting for the perfect moment. Take the first step today, then check the boxes above."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BONUS SECTION: 20 TIPS -->
+    <section id="bonus" class="py-20 bg-slate-950 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-brand-gold text-xs font-bold uppercase tracking-wider">
+                    Included Bonus
+                </span>
+                <h2 class="text-3xl font-extrabold text-white">20 Productivity Rules I Wish I Had Known Earlier</h2>
+                <p class="text-brand-muted text-sm">Concise, high-leverage principles attached at the end of your guide.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-slate-300">
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#01</span>
+                    <p class="font-medium text-white">Plan every day in writing before starting work.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#02</span>
+                    <p class="font-medium text-white">Keep physical pen and paper on your desk.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#03</span>
+                    <p class="font-medium text-white">Follow Pareto's 80/20 leverage rule strictly.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#04</span>
+                    <p class="font-medium text-white">Kill multitasking; task switching drains efficiency.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#05</span>
+                    <p class="font-medium text-white">Single-task with complete mental presence.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#06</span>
+                    <p class="font-medium text-white">Remove environmental visual clutter completely.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#07</span>
+                    <p class="font-medium text-white">Take short power naps when cognitive fatigue hits.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#08</span>
+                    <p class="font-medium text-white">Take short breaks between intense work sprints.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#09</span>
+                    <p class="font-medium text-white">Learn to say NO to non-essential commitments.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#10</span>
+                    <p class="font-medium text-white">Delegate or eliminate low-value tasks.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#11</span>
+                    <p class="font-medium text-white">Execute tasks under 5 minutes immediately.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#12</span>
+                    <p class="font-medium text-white">Do the task you dislike most first thing in the morning.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#13</span>
+                    <p class="font-medium text-white">Set hard deadlines for every key deliverable.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#14</span>
+                    <p class="font-medium text-white">Batch email processing to designated time slots.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#15</span>
+                    <p class="font-medium text-white">Decline meetings without clear written agendas.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-brand-bg border border-brand-border space-y-1">
+                    <span class="text-brand-accent font-bold font-mono">#16</span>
+                    <p class="font-medium text-white">Set boundaries against habitual interrupters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER & PRICING SECTION -->
+    <section id="offer" class="py-24 bg-gradient-to-b from-brand-bg via-slate-950 to-brand-bg relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border-2 border-brand-accent/40 relative overflow-hidden shadow-2xl shadow-cyan-500/10">
+                
+                <div class="absolute top-0 right-0 bg-gradient-to-l from-brand-accent to-blue-600 text-slate-950 text-[10px] font-black uppercase px-6 py-1.5 rounded-bl-xl tracking-wider">
+                    100% FREE
+                </div>
+
+                <div class="text-center space-y-4">
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Claim Your Free Copy Today</h2>
+                    <p class="text-sm text-brand-muted">
+                        Get the complete PDF guide for free and start your 7-day anti-procrastination sprint immediately.
+                    </p>
+                </div>
+
+                <!-- Price Box -->
+                <div class="my-8 py-6 bg-brand-card/90 rounded-2xl border border-brand-border text-center space-y-2">
+                                        <div class="flex items-center justify-center gap-2">
+                        <span class="text-4xl sm:text-5xl font-black text-white">FREE</span>
+                        <span class="text-xs text-emerald-400 font-bold px-2 py-1 rounded bg-emerald-500/10">$0 — NO PAYMENT</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400">No payment required. Instant digital access.</p>
+                </div>
+
+                <!-- Included Features -->
+                <div class="space-y-3 mb-8 text-sm text-slate-200">
+                    <h4 class="font-bold text-white text-xs uppercase tracking-wider text-brand-accent mb-4">What's Included:</h4>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                        <span><strong>The Complete NOVAPATH 7-Day Guide (PDF):</strong> 7 actionable lessons on focus and self-discipline.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                        <span><strong>7 Action Boxes:</strong> Step-by-step physical execution checklists for every day.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                        <span><strong>8 Japanese Techniques Module:</strong> Deep dive into Ikigai, Kaizen, Shinrin-Yoku, and more.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5"></i>
+                        <span><strong>Bonus Module:</strong> 20 Productivity Rules I Wish I Had Known Earlier.</span>
+                    </div>
+                </div>
+
+                <!-- Big CTA -->
+                <div class="space-y-4 text-center">
+                    <a href="https://whop.com/nova-path-solutions-8ae1/the-7-day-anti-procrastination-guide-25?a=shadowsect72" target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-brand-accent via-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-600 text-slate-950 font-black text-lg py-4 px-8 rounded-xl shadow-xl shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                        <i data-lucide="download" class="w-6 h-6"></i>
+                        <span>DOWNLOAD THE FREE GUIDE NOW</span>
+                    </a>
+
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-brand-muted pt-2">
+                        <span class="flex items-center gap-1"><i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-400"></i> Secure Access via Whop</span>
+                        <span class="flex items-center gap-1"><i data-lucide="zap" class="w-3.5 h-3.5 text-brand-accent"></i> Instant Access</span>
+                    </div>
+                </div>
+
+                <!-- Guarantee Box -->
+                <div class="mt-8 pt-6 border-t border-brand-border flex items-center gap-4 text-left">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-brand-gold flex items-center justify-center flex-shrink-0 font-bold">
+                        <i data-lucide="gift" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs text-slate-300 space-y-1">
+                        <span class="font-bold text-white block">Completely Free, No Strings Attached</span>
+                        <p class="text-brand-muted">No payment, no credit card. Grab the guide, work through the 7 days, and take your first step today.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-slate-950 border-t border-brand-border/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Frequently Asked Questions</span>
+                <h2 class="text-3xl font-extrabold text-white">Got Questions?</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl border border-brand-border p-5">
+                    <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between text-left font-bold text-white text-sm">
+                        <span>How do I get the guide?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-brand-accent transition-transform" id="faq-icon-1"></i>
+                    </button>
+                    <div class="mt-3 text-xs text-brand-muted hidden leading-relaxed" id="faq-ans-1">
+                        Click any "Get The Free Guide" button and you will be taken to the guide's page on Whop, where you can claim it for free and access the high-resolution PDF right away.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border p-5">
+                    <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between text-left font-bold text-white text-sm">
+                        <span>Do I need any specific apps or subscriptions?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-brand-accent transition-transform" id="faq-icon-2"></i>
+                    </button>
+                    <div class="mt-3 text-xs text-brand-muted hidden leading-relaxed" id="faq-ans-2">
+                        No. The NOVAPATH system advocates for pure simplicity using pen and paper. Bloated software often acts as a disguised form of procrastination.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border p-5">
+                    <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between text-left font-bold text-white text-sm">
+                        <span>What if I miss a day during the 7-day program?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-brand-accent transition-transform" id="faq-icon-3"></i>
+                    </button>
+                    <div class="mt-3 text-xs text-brand-muted hidden leading-relaxed" id="faq-ans-3">
+                        Simply pick up where you left off. The goal is intentional daily practice rather than rigid perfectionism.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-bg py-12 border-t border-brand-border/60 text-xs text-brand-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-7 h-7 rounded bg-brand-accent flex items-center justify-center font-bold text-slate-950">N</div>
+                    <span class="font-extrabold text-white text-base tracking-wider">NOVAPATH</span>
+                </div>
+                <p class="text-center sm:text-right">THINK CLEARLY. ACT DELIBERATELY. MOVE FORWARD.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-950 border border-brand-border text-[11px] leading-relaxed text-slate-400 space-y-2">
+                <p class="font-semibold text-slate-300">Educational Disclaimer:</p>
+                <p>
+                    This guide is intended for educational and informational purposes only. It provides general productivity guidance and is not a guarantee of specific financial, professional, or personal outcomes. Results vary based on individual effort and consistency.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-brand-border/40 pt-6">
+                <span>&copy; 2026 NOVAPATH. All rights reserved.</span>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-brand-accent">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-accent">Terms of Service</a>
+                    <a href="#" class="hover:text-brand-accent">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        // Quiz Logic
+        let quizScore = 0;
+        function answerQuiz(step, score) {
+            quizScore += score;
+            document.getElementById(`quiz-step-${step}`).classList.add('hidden');
+            if (step < 3) {
+                document.getElementById(`quiz-step-${step + 1}`).classList.remove('hidden');
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            const resultDiv = document.getElementById('quiz-result');
+            const resultTitle = document.getElementById('quiz-result-title');
+            const resultText = document.getElementById('quiz-result-text');
+
+            resultDiv.classList.remove('hidden');
+
+            if (quizScore >= 7) {
+                resultTitle.innerText = "Procrastination Level: HIGH (85%)";
+                resultText.innerText = "You are currently bleeding substantial cognitive bandwidth to micro-distractions and perfectionist hesitation. Day 1 & Day 3 of NOVAPATH will immediately unlock your momentum.";
+            } else if (quizScore >= 5) {
+                resultTitle.innerText = "Procrastination Level: MODERATE (50%)";
+                resultText.innerText = "You have decent discipline, but multitasking and lack of clear daily boundaries cause energy leaks. The 80/20 Pareto rule in Day 2 will elevate your output.";
+            } else {
+                resultTitle.innerText = "Procrastination Level: LOW (20%)";
+                resultText.innerText = "You are already quite focused! NOVAPATH will help you refine your routine further using the 8 Eastern principles in Day 6.";
+            }
+        }
+
+        // Action Box Tab Switching
+        const tabContents = {
+            1: {
+                title: "DAY 1 ACTION BOX: Step Out Of Your Comfort Zone",
+                time: "Est. Time: 10 mins",
+                items: [
+                    "Write down one major goal or task you have been postponing.",
+                    "Break it down into one single, micro-step that takes under 10 minutes.",
+                    "Spend 10 focused minutes executing that exact micro-step today."
+                ],
+                challenge: "Your Challenge: Stop waiting for the perfect moment. Take the first step today, then check the boxes."
+            },
+            2: {
+                title: "DAY 2 ACTION BOX: Find Your 20% (Pareto)",
+                time: "Est. Time: 15 mins",
+                items: [
+                    "Write down the three tasks most likely to move you toward your goal.",
+                    "Circle the ONE task that matters most today.",
+                    "Give that task 20 focused minutes before lower-priority work."
+                ],
+                challenge: "Your Challenge: Choose high impact over superficial busyness."
+            },
+            3: {
+                title: "DAY 3 ACTION BOX: Protect Your Focus",
+                time: "Est. Time: 25 mins",
+                items: [
+                    "Choose one important task to work on.",
+                    "Silence non-essential notifications and put your phone out of reach.",
+                    "Work on that task for 25 minutes without switching tabs or apps."
+                ],
+                challenge: "Your Challenge: Experience one pure, single-tasking session today."
+            },
+            6: {
+                title: "DAY 6 ACTION BOX: Apply One Japanese Technique",
+                time: "Est. Time: 10 mins",
+                items: [
+                    "Choose one technique from today's lesson (e.g. Kaizen or Hara Hachi Bu).",
+                    "Turn it into a small action you can execute today.",
+                    "Decide the exact time you will repeat that action tomorrow."
+                ],
+                challenge: "Your Challenge: Do not change everything at once. Put one idea into practice today."
+            }
+        };
+
+        function switchTab(day) {
+            [1, 2, 3, 6].forEach(d => {
+                const btn = document.getElementById(`tab-${d}`);
+                if (btn) {
+                    if (d === day) {
+                        btn.className = "px-4 py-2 rounded-xl text-xs font-bold font-mono whitespace-nowrap bg-brand-accent text-slate-950";
+                    } else {
+                        btn.className = "px-4 py-2 rounded-xl text-xs font-bold font-mono whitespace-nowrap bg-brand-bg text-brand-muted hover:text-white";
+                    }
+                }
+            });
+
+            const data = tabContents[day];
+            if (!data) return;
+
+            const container = document.getElementById('action-box-content');
+            let itemsHtml = data.items.map(item => `
+                <label class="flex items-start gap-3 p-3 rounded-xl bg-brand-bg border border-brand-border/60 cursor-pointer hover:border-brand-accent/40">
+                    <input type="checkbox" class="mt-1 rounded border-slate-700 text-brand-accent focus:ring-0">
+                    <span class="text-sm text-slate-200">${item}</span>
+                </label>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <h4 class="text-base font-bold text-white flex items-center gap-2">
+                        <i data-lucide="check-square" class="w-5 h-5 text-brand-accent"></i>
+                        ${data.title}
+                    </h4>
+                    <span class="text-xs text-brand-muted font-mono">${data.time}</span>
+                </div>
+                <div class="space-y-3 pt-2">
+                    ${itemsHtml}
+                </div>
+                <p class="text-xs text-brand-gold italic pt-2">
+                    "${data.challenge}"
+                </p>
+            `;
+            lucide.createIcons();
+        }
+
+        // FAQ Toggle
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                ans.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>
